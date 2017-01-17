@@ -32,8 +32,6 @@ USE_GCC=	6+
 
 CMAKE_ARGS+=	-DUSE_INTERNAL_GPERFTOOLS_LIBRARY=0
 
-.include <bsd.port.options.mk>
-
 USE_RC_SUBR=	${PORTNAME}
 USERS=		clickhouse
 GROUPS=		clickhouse
