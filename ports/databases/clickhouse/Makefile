@@ -1,10 +1,6 @@
 # Created by: proler@gmail.com
 # $FreeBSD: $
 
-# TODO:
-#GIDS: clickhouse:*:800:
-#UIDS: clickhouse:*:800:800::0:0:ClickHouse Daemon:/var/db/clickhouse:/usr/sbin/nologin
-
 PORTNAME=	clickhouse
 PORTVERSION=	1.1.54133
 CATEGORIES=	databases
