@@ -39,19 +39,19 @@ post-patch:
 	@${REINPLACE_CMD} -e 's|/opt/clickhouse|/var/db/clickhouse|' ${WRKSRC}/dbms/src/Server/config.xml
 
 post-install:
-	${RM} ${STAGEDIR}${PREFIX}/bin/compressor
-	${RM} ${STAGEDIR}${PREFIX}/bin/config-processor
-	${RM} ${STAGEDIR}${PREFIX}/bin/corrector_utf8
-	${RM} ${STAGEDIR}${PREFIX}/include/zconf.h
-	${RM} ${STAGEDIR}${PREFIX}/include/zlib.h
-	${RM} ${STAGEDIR}${PREFIX}/lib/cmake/Poco/PocoConfig.cmake
-	${RM} ${STAGEDIR}${PREFIX}/lib/libz.a
-	${RM} ${STAGEDIR}${PREFIX}/lib/libz.so
-	${RM} ${STAGEDIR}${PREFIX}/lib/libz.so.1
-	${RM} ${STAGEDIR}${PREFIX}/lib/libz.so.1.2.8.zlib-ng
-	${RM} ${STAGEDIR}${PREFIX}/share/man/man3/zlib.3
-	${RM} ${STAGEDIR}${PREFIX}/share/pkgconfig/zlib.pc
-	${RM} ${STAGEDIR}${ETCDIR}/server/metrika
+	@${RM} ${STAGEDIR}${PREFIX}/bin/compressor
+	@${RM} ${STAGEDIR}${PREFIX}/bin/config-processor
+	@${RM} ${STAGEDIR}${PREFIX}/bin/corrector_utf8
+	@${RM} ${STAGEDIR}${PREFIX}/include/zconf.h
+	@${RM} ${STAGEDIR}${PREFIX}/include/zlib.h
+	@${RM} ${STAGEDIR}${PREFIX}/lib/cmake/Poco/PocoConfig.cmake
+	@${RM} ${STAGEDIR}${PREFIX}/lib/libz.a
+	@${RM} ${STAGEDIR}${PREFIX}/lib/libz.so
+	@${RM} ${STAGEDIR}${PREFIX}/lib/libz.so.1
+	@${RM} ${STAGEDIR}${PREFIX}/lib/libz.so.1.2.8.zlib-ng
+	@${RM} ${STAGEDIR}${PREFIX}/share/man/man3/zlib.3
+	@${RM} ${STAGEDIR}${PREFIX}/share/pkgconfig/zlib.pc
+	@${RM} ${STAGEDIR}${ETCDIR}/server/metrika
 
 	${INSTALL_DATA} ${WRKSRC}/dbms/src/Client/config.xml \
 		${STAGEDIR}${PREFIX}/etc/clickhouse-client/config.xml.sample
