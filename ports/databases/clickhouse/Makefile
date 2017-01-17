@@ -21,7 +21,7 @@ USE_GITHUB=	yes
 GH_ACCOUNT=	yandex
 GH_PROJECT=	ClickHouse
 #GH_TAGNAME=	v${PORTVERSION}-stable # for next version
-GH_TAGNAME=	7a526b8
+GH_TAGNAME=	db0fce3
 
 ONLY_FOR_ARCHS=	amd64
 ONLY_FOR_ARCHS_REASON=	"Only supported on amd64"
@@ -29,7 +29,6 @@ ONLY_FOR_ARCHS_REASON=	"Only supported on amd64"
 USES=		compiler:c++14-lang cmake mysql
 USE_GNOME=	glib20
 CMAKE_ARGS=	-DUSE_INTERNAL_GPERFTOOLS_LIBRARY=0
-USE_GCC=	6+
 
 USE_RC_SUBR=	${PORTNAME}
 USERS=		clickhouse
