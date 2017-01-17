@@ -26,7 +26,7 @@ GH_TAGNAME=	7a526b8
 ONLY_FOR_ARCHS=	amd64
 ONLY_FOR_ARCHS_REASON=	"Only supported on amd64"
 
-USES=		compiler:c++14-lang cmake ssl mysql
+USES=		compiler:c++14-lang cmake mysql
 USE_GNOME=	glib20
 CMAKE_ARGS=	-DUSE_INTERNAL_GPERFTOOLS_LIBRARY=0
 USE_GCC=	6+
@@ -51,7 +51,12 @@ post-install:
 	@${RM} ${STAGEDIR}${PREFIX}/lib/libz.so.1.2.8.zlib-ng
 	@${RM} ${STAGEDIR}${PREFIX}/share/man/man3/zlib.3
 	@${RM} ${STAGEDIR}${PREFIX}/share/pkgconfig/zlib.pc
-	@${RMDIR} ${STAGEDIR}${ETCDIR}/server/metrika
+	@${RMDIR} ${STAGEDIR}${PREFIX}/etc/clickhouse-server/metrika
+	@${RMDIR} ${STAGEDIR}${PREFIX}/lib/cmake/Poco
+	@${RMDIR} ${STAGEDIR}${PREFIX}/lib/cmake
+	@${RMDIR} ${STAGEDIR}${PREFIX}/share/man/man3
+	@${RMDIR} ${STAGEDIR}${PREFIX}/share/man
+	@${RMDIR} ${STAGEDIR}${PREFIX}/share/pkgconfig
 
 	${INSTALL_DATA} ${WRKSRC}/dbms/src/Client/config.xml \
 		${STAGEDIR}${PREFIX}/etc/clickhouse-client/config.xml.sample
