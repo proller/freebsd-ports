@@ -51,7 +51,7 @@ post-install:
 	@${RM} ${STAGEDIR}${PREFIX}/lib/libz.so.1.2.8.zlib-ng
 	@${RM} ${STAGEDIR}${PREFIX}/share/man/man3/zlib.3
 	@${RM} ${STAGEDIR}${PREFIX}/share/pkgconfig/zlib.pc
-	@${RM} ${STAGEDIR}${ETCDIR}/server/metrika
+	@${RMDIR} ${STAGEDIR}${ETCDIR}/server/metrika
 
 	${INSTALL_DATA} ${WRKSRC}/dbms/src/Client/config.xml \
 		${STAGEDIR}${PREFIX}/etc/clickhouse-client/config.xml.sample
