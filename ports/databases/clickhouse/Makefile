@@ -29,6 +29,7 @@ GH_TAGNAME=	7a526b8
 ONLY_FOR_ARCHS=	amd64
 ONLY_FOR_ARCHS_REASON=	"Only supported on amd64"
 
+USE_GNOME=	glib20
 USES=		compiler:c++14-lang cmake ssl mysql
 USE_GCC=	6+
 
@@ -44,9 +45,6 @@ post-patch:
 	@${REINPLACE_CMD} -e 's|/opt/clickhouse|/var/db/clickhouse|' ${WRKSRC}/dbms/src/Server/config.xml
 
 post-install:
-	${MKDIR} ${STAGEDIR}${PREFIX}/etc/clickhouse-server
-	${MKDIR} ${STAGEDIR}${PREFIX}/etc/clickhouse-client
-
 	${INSTALL_DATA} ${WRKSRC}/dbms/src/Client/config.xml \
 		${STAGEDIR}${PREFIX}/etc/clickhouse-client/config.xml.sample
 	${INSTALL_DATA} ${WRKSRC}/dbms/src/Server/config.xml \
