@@ -1,0 +1,8 @@
+bin/clickhouse
+bin/clickhouse-benchmark
+bin/clickhouse-client
+bin/clickhouse-local
+bin/clickhouse-server
+@sample etc/clickhouse-client/config.xml.sample
+@sample etc/clickhouse-server/config.xml.sample
+@sample etc/clickhouse-server/users.xml.sample
