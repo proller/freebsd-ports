@@ -2,7 +2,7 @@
 # $FreeBSD: $
 
 PORTNAME=	clickhouse
-PORTVERSION=	1.1.54133
+PORTVERSION=	1.1.54134
 CATEGORIES=	databases
 
 MAINTAINER=	nobody@FreeBSD.org
@@ -21,7 +21,7 @@ USE_GITHUB=	yes
 GH_ACCOUNT=	yandex
 GH_PROJECT=	ClickHouse
 #GH_TAGNAME=	v${PORTVERSION}-stable # for next version
-GH_TAGNAME=	db0fce3
+GH_TAGNAME=	2184d4d
 
 ONLY_FOR_ARCHS=	amd64
 ONLY_FOR_ARCHS_REASON=	"Only supported on amd64"
@@ -38,7 +38,7 @@ post-patch:
 	@${REINPLACE_CMD} -e 's|/opt/clickhouse|/var/db/clickhouse|' ${WRKSRC}/dbms/src/Server/config.xml
 
 post-install:
-	@${RM} ${STAGEDIR}${PREFIX}/bin/compressor
+	@${RM} ${STAGEDIR}${PREFIX}/bin/clickhouse-compressor
 	@${RM} ${STAGEDIR}${PREFIX}/bin/config-processor
 	@${RM} ${STAGEDIR}${PREFIX}/bin/corrector_utf8
 	@${RM} ${STAGEDIR}${PREFIX}/include/zconf.h
@@ -50,7 +50,6 @@ post-install:
 	@${RM} ${STAGEDIR}${PREFIX}/lib/libz.so.1.2.8.zlib-ng
 	@${RM} ${STAGEDIR}${PREFIX}/share/man/man3/zlib.3
 	@${RM} ${STAGEDIR}${PREFIX}/share/pkgconfig/zlib.pc
-	@${RMDIR} ${STAGEDIR}${PREFIX}/etc/clickhouse-server/metrika
 	@${RMDIR} ${STAGEDIR}${PREFIX}/lib/cmake/Poco
 	@${RMDIR} ${STAGEDIR}${PREFIX}/lib/cmake
 	@${RMDIR} ${STAGEDIR}${PREFIX}/share/man/man3
