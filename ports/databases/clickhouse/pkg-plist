@@ -3,6 +3,9 @@ bin/clickhouse-benchmark
 bin/clickhouse-client
 bin/clickhouse-local
 bin/clickhouse-server
+lib/libclickhouse.so.%%PORTVERSION%%
+lib/libclickhouse.so.1
+lib/libclickhouse.so
 @dir etc/clickhouse-client
 @dir etc/clickhouse-server
 @sample etc/clickhouse-client/config.xml.sample
