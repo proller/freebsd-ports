@@ -13,8 +13,7 @@ COMMENT=	ClickHouse is an column-oriented database management system
 LICENSE=	APACHE20
 
 BUILD_DEPENDS=	bash:shells/bash
-LIB_DEPENDS=	libsqlite3.so:databases/sqlite3 \
-		libtcmalloc.so:devel/google-perftools \
+LIB_DEPENDS=	libtcmalloc.so:devel/google-perftools \
 		libodbc.so:databases/unixODBC \
 		libltdl.so:devel/libltdl \
 		libicudata.so:devel/icu \
