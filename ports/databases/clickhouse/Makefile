@@ -1,5 +1,5 @@
 # Created by: proler@gmail.com
-# $FreeBSD: $
+# $FreeBSD: head/databases/clickhouse/Makefile 435190 2017-03-01 18:30:06Z amdmi3 $
 
 PORTNAME=	clickhouse
 PORTVERSION=	1.1.54165
@@ -43,6 +43,14 @@ GROUPS=		clickhouse
 SOVERSION=	1.1.54164
 PLIST_SUB=	SOVERSION=${SOVERSION}
 
+.include <bsd.port.pre.mk>
+
+.if ${OPSYS} == FreeBSD && ${OSVERSION} < 1100000
+BUILD_DEPENDS+= clang38:devel/llvm38
+CC=		clang38
+CXX=		clang++38
+.endif
+
 post-patch:
 	@${REINPLACE_CMD} -e 's|/var/lib/clickhouse|/var/db/clickhouse|' ${WRKSRC}/dbms/src/Server/config.xml
 
@@ -65,4 +73,4 @@ post-install:
 	@${MKDIR} ${STAGEDIR}/var/log/clickhouse
 	@${MKDIR} ${STAGEDIR}/var/run/clickhouse
 
-.include <bsd.port.mk>
+.include <bsd.port.post.mk>
