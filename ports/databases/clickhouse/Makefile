@@ -3,6 +3,8 @@
 
 PORTNAME=	clickhouse
 PORTVERSION=	1.1.54165
+DISTVERSIONPREFIX=	v
+DISTVERSIONSUFFIX=	-stable
 CATEGORIES=	databases
 
 MAINTAINER=	nobody@FreeBSD.org
@@ -21,8 +23,6 @@ LIB_DEPENDS=	libsqlite3.so:databases/sqlite3 \
 USE_GITHUB=	yes
 GH_ACCOUNT=	yandex
 GH_PROJECT=	ClickHouse
-GH_TAGNAME=	v${PORTVERSION}-stable
-#GH_TAGNAME=	84e4fb0
 
 ONLY_FOR_ARCHS=	amd64
 ONLY_FOR_ARCHS_REASON=	"Only supported on amd64"
