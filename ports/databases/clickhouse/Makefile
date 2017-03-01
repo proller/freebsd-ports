@@ -27,7 +27,7 @@ GH_PROJECT=	ClickHouse
 ONLY_FOR_ARCHS=	amd64
 ONLY_FOR_ARCHS_REASON=	"Only supported on amd64"
 
-USES=		compiler:c++14-lang cmake iconv mysql
+USES=		compiler:c++14-lang cmake iconv mysql ssl readline
 USE_LDCONFIG=	yes
 CMAKE_ARGS=	-DUSE_INTERNAL_GPERFTOOLS_LIBRARY=0 \
 		-DUSE_INTERNAL_BOOST_LIBRARY=0 \
