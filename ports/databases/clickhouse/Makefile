@@ -57,4 +57,8 @@ post-install:
 	${INSTALL_DATA} ${WRKSRC}/dbms/src/Server/users.xml \
 		${STAGEDIR}${PREFIX}/etc/clickhouse-server/users.xml.sample
 
+	@${MKDIR} ${STAGEDIR}/var/db/clickhouse
+	@${MKDIR} ${STAGEDIR}/var/log/clickhouse
+	@${MKDIR} ${STAGEDIR}/var/run/clickhouse
+
 .include <bsd.port.mk>

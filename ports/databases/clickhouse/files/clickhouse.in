@@ -52,19 +52,6 @@ required_files=${clickhouse_config}
 start_precmd=clickhouse_prestart
 
 clickhouse_prestart () {
-	if [ ! -d ${clickhouse_rundir} ]; then
-		mkdir -m 755 -p ${clickhouse_rundir}
-		chown -R ${clickhouse_user}:${clickhouse_group} ${clickhouse_rundir}
-	fi
-	if [ ! -d ${clickhouse_logdir} ]; then
-		mkdir -m 755 -p ${clickhouse_logdir}
-		chown -R ${clickhouse_user}:${clickhouse_group} ${clickhouse_logdir}
-	fi
-	if [ ! -d ${clickhouse_dbdir} ]; then
-		mkdir -m 700 -p ${clickhouse_dbdir}
-		chown -R ${clickhouse_user}:${clickhouse_group} ${clickhouse_dbdir}
-	fi
-
 	if checkyesno clickhouse_limits; then
 		eval `/usr/bin/limits -e -U ${clickhouse_user}` 2>/dev/null
 	else
