@@ -2,9 +2,10 @@
 # $FreeBSD: head/databases/clickhouse/Makefile 435190 2017-03-01 18:30:06Z amdmi3 $
 
 PORTNAME=	clickhouse
-PORTVERSION=	1.1.54165
+PORTVERSION=	1.1.54178
 DISTVERSIONPREFIX=	v
 DISTVERSIONSUFFIX=	-stable
+DISTVERSIONSUFFIX=	-testing
 CATEGORIES=	databases
 
 MAINTAINER=	proler@gmail.com
@@ -12,12 +13,19 @@ COMMENT=	ClickHouse is an column-oriented database management system
 
 LICENSE=	APACHE20
 
-BUILD_DEPENDS=	bash:shells/bash
+BUILD_DEPENDS=	bash:shells/bash \
+				sparsehash>=0:devel/sparsehash
 LIB_DEPENDS=	libtcmalloc.so:devel/google-perftools \
 		libodbc.so:databases/unixODBC \
 		libltdl.so:devel/libltdl \
 		libicudata.so:devel/icu \
-		libboost_program_options.so:devel/boost-libs
+		libboost_program_options.so:devel/boost-libs \
+		libzookeeper_mt.so:devel/libzookeeper \
+		libre2.so:devel/re2 \
+		libdouble-conversion.so:devel/libdouble-conversion \
+		libzstd.so:archivers/zstd \
+		liblz4.so:archivers/liblz4 \
+		libPocoNet.so:devel/poco
 
 USE_GITHUB=	yes
 GH_ACCOUNT=	yandex
@@ -28,9 +36,7 @@ ONLY_FOR_ARCHS_REASON=	"Only supported on amd64"
 
 USES=		compiler:c++14-lang cmake iconv mysql ssl readline
 USE_LDCONFIG=	yes
-CMAKE_ARGS=	-DUSE_INTERNAL_GPERFTOOLS_LIBRARY=0 \
-		-DUSE_INTERNAL_BOOST_LIBRARY=0 \
-		-DUSE_INTERNAL_ZLIB_LIBRARY=0 \
+CMAKE_ARGS=	-DUNBUNDLED=1 \
 		-DUSE_STATIC_LIBRARIES=0 \
 		-DNO_WERROR=1
 
@@ -39,7 +45,8 @@ USERS=		clickhouse
 GROUPS=		clickhouse
 
 #temporary! use PORTVERSION after version match
-SOVERSION=	1.1.54164
+#SOVERSION=	1.1.54164
+SOVERSION=	${PORTVERSION}
 PLIST_SUB=	SOVERSION=${SOVERSION}
 
 .include <bsd.port.pre.mk>
