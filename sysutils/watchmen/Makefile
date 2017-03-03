@@ -35,17 +35,15 @@ PLIST_FILES=	bin/${PORTNAME} \
 .include <bsd.port.options.mk>
 
 .if ${PORT_OPTIONS:MMYSQL}
-USE_MYSQL=	yes
-RUN_DEPENDS+=	p5-DBD-mysql>=0:databases/p5-DBD-mysql
+RUN_DEPENDS+=	p5-DBD-mysql:databases/p5-DBD-mysql
 .endif
 
 .if ${PORT_OPTIONS:MPGSQL}
-USES+=		pgsql
-RUN_DEPENDS+=	p5-DBD-Pg>=2.19.2:databases/p5-DBD-Pg
+RUN_DEPENDS+=	p5-DBD-Pg:databases/p5-DBD-Pg
 .endif
 
 .if ${PORT_OPTIONS:MEMAIL}
-RUN_DEPENDS+=	p5-MIME-Lite>=0:mail/p5-MIME-Lite
+RUN_DEPENDS+=	p5-MIME-Lite:mail/p5-MIME-Lite
 .endif
 
 post-install:
