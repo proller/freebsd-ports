@@ -45,8 +45,8 @@ USERS=		clickhouse
 GROUPS=		clickhouse
 
 #temporary! use PORTVERSION after version match
-#SOVERSION=	1.1.54164
 SOVERSION=	${PORTVERSION}
+SOVERSION=	1.1.54173
 PLIST_SUB=	SOVERSION=${SOVERSION}
 
 .include <bsd.port.pre.mk>
@@ -64,9 +64,6 @@ post-install:
 	@${RM} ${STAGEDIR}${PREFIX}/bin/clickhouse-compressor
 	@${RM} ${STAGEDIR}${PREFIX}/bin/config-processor
 	@${RM} ${STAGEDIR}${PREFIX}/bin/corrector_utf8
-	@${RM} ${STAGEDIR}${PREFIX}/lib/cmake/Poco/PocoConfig.cmake
-	@${RMDIR} ${STAGEDIR}${PREFIX}/lib/cmake/Poco
-	@${RMDIR} ${STAGEDIR}${PREFIX}/lib/cmake
 
 	${INSTALL_DATA} ${WRKSRC}/dbms/src/Client/config.xml \
 		${STAGEDIR}${PREFIX}/etc/clickhouse-client/config.xml.sample
