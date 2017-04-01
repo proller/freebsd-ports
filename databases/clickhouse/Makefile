@@ -2,10 +2,10 @@
 # $FreeBSD: head/databases/clickhouse/Makefile 435190 2017-03-01 18:30:06Z amdmi3 $
 
 PORTNAME=	clickhouse
-PORTVERSION=	1.1.54190
+PORTVERSION=	1.1.54206
 DISTVERSIONPREFIX=	v
-DISTVERSIONSUFFIX=	-stable
-#DISTVERSIONSUFFIX=	-testing
+#DISTVERSIONSUFFIX=	-stable
+DISTVERSIONSUFFIX=	-testing
 CATEGORIES=	databases
 
 MAINTAINER=	proler@gmail.com
@@ -38,7 +38,8 @@ USES=		compiler:c++14-lang cmake iconv mysql ssl readline
 USE_LDCONFIG=	yes
 CMAKE_ARGS=	-DUNBUNDLED=1 \
 		-DUSE_STATIC_LIBRARIES=0 \
-		-DNO_WERROR=1
+		-DNO_WERROR=1 \
+		-DCXX11_ABI=
 
 USE_RC_SUBR=	${PORTNAME}
 USERS=		clickhouse
@@ -46,7 +47,7 @@ GROUPS=		clickhouse
 
 #temporary! use PORTVERSION after version match
 SOVERSION=	${PORTVERSION}
-SOVERSION=	1.1.54189
+SOVERSION=	1.1.54205
 PLIST_SUB=	SOVERSION=${SOVERSION}
 
 .include <bsd.port.pre.mk>
@@ -64,6 +65,8 @@ post-install:
 	@${RM} ${STAGEDIR}${PREFIX}/bin/clickhouse-compressor
 	@${RM} ${STAGEDIR}${PREFIX}/bin/config-processor
 	@${RM} ${STAGEDIR}${PREFIX}/bin/corrector_utf8
+	@${RM} -r ${STAGEDIR}${PREFIX}/include/gtest
+	@${RM} ${STAGEDIR}${PREFIX}/lib/libgtest*
 
 	${INSTALL_DATA} ${WRKSRC}/dbms/src/Client/config.xml \
 		${STAGEDIR}${PREFIX}/etc/clickhouse-client/config.xml.sample
