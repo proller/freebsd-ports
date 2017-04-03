@@ -2,7 +2,7 @@
 # $FreeBSD: head/databases/clickhouse/Makefile 435190 2017-03-01 18:30:06Z amdmi3 $
 
 PORTNAME=	clickhouse
-PORTVERSION=	1.1.54206
+PORTVERSION=	1.1.54208
 DISTVERSIONPREFIX=	v
 #DISTVERSIONSUFFIX=	-stable
 DISTVERSIONSUFFIX=	-testing
@@ -47,7 +47,7 @@ GROUPS=		clickhouse
 
 #temporary! use PORTVERSION after version match
 SOVERSION=	${PORTVERSION}
-SOVERSION=	1.1.54205
+SOVERSION=	1.1.54207
 PLIST_SUB=	SOVERSION=${SOVERSION}
 
 .include <bsd.port.pre.mk>
