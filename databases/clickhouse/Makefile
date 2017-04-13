@@ -58,7 +58,7 @@ CXX=		clang++38
 .endif
 
 post-patch:
-	@${REINPLACE_CMD} -e 's|/var/lib/clickhouse|/var/db/clickhouse|' ${WRKSRC}/dbms/src/Server/config.xml
+	@${REINPLACE_CMD} -e 's|/var/lib/clickhouse|/var/db/clickhouse|;s|/var/log/clickhouse-server|/var/log/clickhouse|' ${WRKSRC}/dbms/src/Server/config.xml
 
 post-install:
 	@${RM} ${STAGEDIR}${PREFIX}/bin/clickhouse-compressor
