@@ -44,7 +44,7 @@ load_rc_config ${name}
 : ${clickhouse_pidfile="${clickhouse_rundir}/clickhouse.pid"}
 : ${clickhouse_args="--server --daemon --pid-file ${clickhouse_pidfile} --config-file ${clickhouse_config} ${clickhouse_flags}"}
 
-command=/usr/local/bin/clickhouse
+command=%%PREFIX%%/bin/clickhouse
 pidfile=${clickhouse_pidfile}
 command_args=${clickhouse_args}
 required_files=${clickhouse_config}
