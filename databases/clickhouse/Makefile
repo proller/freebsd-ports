@@ -1,5 +1,5 @@
 # Created by: proler@gmail.com
-# $FreeBSD: head/databases/clickhouse/Makefile 435190 2017-03-01 18:30:06Z amdmi3 $
+# $FreeBSD: head/databases/clickhouse/Makefile 439372 2017-04-25 10:47:21Z vg $
 
 PORTNAME=	clickhouse
 PORTVERSION=	1.1.54230
@@ -33,6 +33,8 @@ GH_PROJECT=	ClickHouse
 
 ONLY_FOR_ARCHS=	amd64
 ONLY_FOR_ARCHS_REASON=	"Only supported on amd64"
+
+BROKEN_FreeBSD_10=	Builds but does not work
 
 USES=		compiler:c++14-lang cmake iconv mysql ssl readline
 USE_LDCONFIG=	yes

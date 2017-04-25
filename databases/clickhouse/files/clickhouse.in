@@ -1,6 +1,6 @@
 #!/bin/sh
 
-# $FreeBSD$
+# $FreeBSD: head/databases/clickhouse/files/clickhouse.in 439372 2017-04-25 10:47:21Z vg $
 #
 # PROVIDE: clickhouse
 # REQUIRE: LOGIN
