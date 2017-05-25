@@ -2,10 +2,9 @@
 # $FreeBSD: head/databases/clickhouse/Makefile 439372 2017-04-25 10:47:21Z vg $
 
 PORTNAME=	clickhouse
-PORTVERSION=	1.1.54230
+PORTVERSION=	1.1.54236
 DISTVERSIONPREFIX=	v
-#DISTVERSIONSUFFIX=	-stable
-DISTVERSIONSUFFIX=	-testing
+DISTVERSIONSUFFIX=	-stable
 CATEGORIES=	databases
 
 MAINTAINER=	proler@gmail.com
@@ -39,6 +38,7 @@ BROKEN_FreeBSD_10=	Builds but does not work
 USES=		compiler:c++14-lang cmake iconv mysql ssl readline
 USE_LDCONFIG=	yes
 CMAKE_ARGS=	-DUNBUNDLED=1 \
+		-DUSE_INTERNAL_BOOST_LIBRARY=1 \
 		-DUSE_STATIC_LIBRARIES=0 \
 		-DNO_WERROR=1 \
 		-DENABLE_TESTS=0 \
