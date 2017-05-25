@@ -1,5 +1,5 @@
 # Created by: proler@gmail.com
-# $FreeBSD: head/databases/clickhouse/Makefile 439372 2017-04-25 10:47:21Z vg $
+# $FreeBSD: head/databases/clickhouse/Makefile 439934 2017-05-02 06:48:10Z jbeich $
 
 PORTNAME=	clickhouse
 PORTVERSION=	1.1.54236
@@ -18,7 +18,6 @@ LIB_DEPENDS=	libtcmalloc.so:devel/google-perftools \
 		libodbc.so:databases/unixODBC \
 		libltdl.so:devel/libltdl \
 		libicudata.so:devel/icu \
-		libboost_program_options.so:devel/boost-libs \
 		libzookeeper_mt.so:devel/libzookeeper \
 		libre2.so:devel/re2 \
 		libdouble-conversion.so:devel/libdouble-conversion \
@@ -37,6 +36,7 @@ BROKEN_FreeBSD_10=	Builds but does not work
 
 USES=		compiler:c++14-lang cmake iconv mysql ssl readline
 USE_LDCONFIG=	yes
+# Bug 218841: use bundled boost 1.62 to avoid 1.64 bustage
 CMAKE_ARGS=	-DUNBUNDLED=1 \
 		-DUSE_INTERNAL_BOOST_LIBRARY=1 \
 		-DUSE_STATIC_LIBRARIES=0 \
