@@ -2,7 +2,7 @@
 # $FreeBSD: head/databases/clickhouse/Makefile 444463 2017-06-27 13:46:53Z sunpoet $
 
 PORTNAME=	clickhouse
-PORTVERSION=	1.1.54242
+PORTVERSION=	1.1.54245
 DISTVERSIONPREFIX=	v
 DISTVERSIONSUFFIX=	-stable
 #PORTREVISION=	1
