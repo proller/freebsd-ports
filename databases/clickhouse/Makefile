@@ -1,10 +1,10 @@
 # Created by: proler@gmail.com
-# $FreeBSD: head/databases/clickhouse/Makefile 444463 2017-06-27 13:46:53Z sunpoet $
+# $FreeBSD: head/databases/clickhouse/Makefile 445864 2017-07-15 09:51:09Z eugen $
 
 PORTNAME=	clickhouse
-PORTVERSION=	1.1.54267
+PORTVERSION=	1.1.54279
 DISTVERSIONPREFIX=	v
-DISTVERSIONSUFFIX=	-stable
+#DISTVERSIONSUFFIX=	-stable
 DISTVERSIONSUFFIX=	-testing
 #PORTREVISION=	1
 CATEGORIES=	databases
@@ -15,18 +15,22 @@ COMMENT=	ClickHouse is an column-oriented database management system
 LICENSE=	APACHE20
 
 BUILD_DEPENDS=	bash:shells/bash \
-				sparsehash>=0:devel/sparsehash
+				sparsehash>=0:devel/sparsehash \
+				cctz:devel/cctz
+
 LIB_DEPENDS=	libtcmalloc.so:devel/google-perftools \
 		libodbc.so:databases/unixODBC \
 		libltdl.so:devel/libltdl \
 		libicudata.so:devel/icu \
+		libboost_program_options.so:devel/boost-libs \
 		libzookeeper_mt.so:devel/libzookeeper \
 		libre2.so:devel/re2 \
 		libdouble-conversion.so:devel/libdouble-conversion \
 		libzstd.so:archivers/zstd \
 		liblz4.so:archivers/liblz4 \
 		libPocoNet.so:devel/poco \
-		libboost_program_options.so:devel/boost-libs
+		libcpuid.so:sysutils/libcpuid \
+		libunwind.so:devel/libunwind
 
 USE_GITHUB=	yes
 GH_ACCOUNT=	yandex
