@@ -16,7 +16,7 @@ LICENSE=	APACHE20
 
 BUILD_DEPENDS=	bash:shells/bash \
 				sparsehash>=0:devel/sparsehash \
-				cctz:devel/cctz
+				cctz>=0:devel/cctz
 
 LIB_DEPENDS=	libtcmalloc.so:devel/google-perftools \
 		libodbc.so:databases/unixODBC \
