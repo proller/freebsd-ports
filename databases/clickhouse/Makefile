@@ -1,5 +1,5 @@
 # Created by: proler@gmail.com
-# $FreeBSD: head/databases/clickhouse/Makefile 445864 2017-07-15 09:51:09Z eugen $
+# $FreeBSD: head/databases/clickhouse/Makefile 450058 2017-09-18 17:45:35Z vg $
 
 PORTNAME=	clickhouse
 PORTVERSION=	1.1.54289
