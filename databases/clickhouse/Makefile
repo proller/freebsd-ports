@@ -9,9 +9,6 @@ DISTVERSIONSUFFIX=	-stable
 PORTREVISION=	1
 CATEGORIES=	databases
 
-PATCH_SITES=	https://github.com/${GH_ACCOUNT}/${GH_PROJECT}/commit/
-PATCHFILES=	19042816c4a1.patch:-p1
-
 MAINTAINER=	proler@gmail.com
 COMMENT=	ClickHouse is an column-oriented database management system
 
