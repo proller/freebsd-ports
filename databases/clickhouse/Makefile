@@ -2,11 +2,11 @@
 # $FreeBSD: head/databases/clickhouse/Makefile 451394 2017-10-06 18:23:08Z jbeich $
 
 PORTNAME=	clickhouse
-PORTVERSION=	1.1.54304
+PORTVERSION=	1.1.54310
 DISTVERSIONPREFIX=	v
 DISTVERSIONSUFFIX=	-stable
 #DISTVERSIONSUFFIX=	-testing
-PORTREVISION=	1
+#PORTREVISION=	1
 CATEGORIES=	databases
 
 MAINTAINER=	proler@gmail.com
@@ -30,7 +30,8 @@ LIB_DEPENDS=	libtcmalloc.so:devel/google-perftools \
 		liblz4.so:archivers/liblz4 \
 		libPocoNet.so:devel/poco \
 		libcpuid.so:sysutils/libcpuid \
-		libunwind.so:devel/libunwind
+		libunwind.so:devel/libunwind \
+		librdkafka.so:net/librdkafka
 
 USE_GITHUB=	yes
 GH_ACCOUNT=	yandex
