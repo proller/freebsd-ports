@@ -2,12 +2,15 @@
 # $FreeBSD: head/databases/clickhouse/Makefile 451394 2017-10-06 18:23:08Z jbeich $
 
 PORTNAME=	clickhouse
-PORTVERSION=	1.1.54310
+PORTVERSION=	1.1.54318
 DISTVERSIONPREFIX=	v
 DISTVERSIONSUFFIX=	-stable
 #DISTVERSIONSUFFIX=	-testing
 #PORTREVISION=	1
 CATEGORIES=	databases
+
+PATCH_SITES=	https://github.com/${GH_ACCOUNT}/${GH_PROJECT}/commit/
+PATCHFILES=	fa65bdcf4847.patch:-p1
 
 MAINTAINER=	proler@gmail.com
 COMMENT=	ClickHouse is an column-oriented database management system
