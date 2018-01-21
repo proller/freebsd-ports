@@ -2,24 +2,25 @@
 # $FreeBSD: head/databases/clickhouse/Makefile 451394 2017-10-06 18:23:08Z jbeich $
 
 PORTNAME=	clickhouse
-PORTVERSION=	1.1.54318
+PORTVERSION=	1.1.54341
 DISTVERSIONPREFIX=	v
-DISTVERSIONSUFFIX=	-stable
-#DISTVERSIONSUFFIX=	-testing
+#DISTVERSIONSUFFIX=	-stable
+DISTVERSIONSUFFIX=	-testing
 #PORTREVISION=	1
 CATEGORIES=	databases
 
-PATCH_SITES=	https://github.com/${GH_ACCOUNT}/${GH_PROJECT}/commit/
-PATCHFILES=	fa65bdcf4847.patch:-p1
+#PATCH_SITES=	https://github.com/${GH_ACCOUNT}/${GH_PROJECT}/commit/
+#PATCHFILES=	fa65bdcf4847.patch:-p1
+
+LICENSE=	APACHE20
 
 MAINTAINER=	proler@gmail.com
 COMMENT=	ClickHouse is an column-oriented database management system
 
-LICENSE=	APACHE20
-
 BUILD_DEPENDS=	bash:shells/bash \
 				sparsehash>=0:devel/sparsehash \
-				cctz>=0:devel/cctz
+				cctz>=0:devel/cctz \
+				libdouble-conversion>=0:devel/libdouble-conversion
 
 LIB_DEPENDS=	libtcmalloc.so:devel/google-perftools \
 		libodbc.so:databases/unixODBC \
@@ -28,13 +29,13 @@ LIB_DEPENDS=	libtcmalloc.so:devel/google-perftools \
 		libboost_program_options.so:devel/boost-libs \
 		libzookeeper_mt.so:devel/libzookeeper \
 		libre2.so:devel/re2 \
-		libdouble-conversion.so:devel/libdouble-conversion \
 		libzstd.so:archivers/zstd \
 		liblz4.so:archivers/liblz4 \
 		libPocoNet.so:devel/poco \
 		libcpuid.so:sysutils/libcpuid \
 		libunwind.so:devel/libunwind \
-		librdkafka.so:net/librdkafka
+		librdkafka.so:net/librdkafka \
+		libgtest.so:devel/googletest
 
 USE_GITHUB=	yes
 GH_ACCOUNT=	yandex
@@ -63,10 +64,10 @@ PLIST_SUB=	SOVERSION=${SOVERSION}
 
 .include <bsd.port.pre.mk>
 
-.if ${OPSYS} == FreeBSD && ${OSVERSION} < 1100000
-BUILD_DEPENDS+=	clang38:devel/llvm38
-CC=		clang38
-CXX=		clang++38
+.if ${OPSYS} == FreeBSD && ${OSVERSION} < 1200000
+BUILD_DEPENDS+=	clang50:devel/llvm50
+CC=		clang50
+CXX=		clang++50
 .endif
 
 post-patch:
