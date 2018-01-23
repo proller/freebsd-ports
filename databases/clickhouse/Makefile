@@ -2,20 +2,26 @@
 # $FreeBSD: head/databases/clickhouse/Makefile 451394 2017-10-06 18:23:08Z jbeich $
 
 PORTNAME=	clickhouse
-PORTVERSION=	1.1.54341
+PORTVERSION=	1.1.54342
 DISTVERSIONPREFIX=	v
-#DISTVERSIONSUFFIX=	-stable
-DISTVERSIONSUFFIX=	-testing
+DISTVERSIONSUFFIX=	-stable
+#DISTVERSIONSUFFIX=	-testing
 #PORTREVISION=	1
 CATEGORIES=	databases
 
+PATCH_SITES=	https://github.com/proller/${GH_PROJECT}/commit/
+PATCHFILES=	05b203574ae2.patch:-p1
 #PATCH_SITES=	https://github.com/${GH_ACCOUNT}/${GH_PROJECT}/commit/
 #PATCHFILES=	fa65bdcf4847.patch:-p1
 
-LICENSE=	APACHE20
-
 MAINTAINER=	proler@gmail.com
 COMMENT=	ClickHouse is an column-oriented database management system
+
+LICENSE=	APACHE20
+
+BROKEN_FreeBSD_10=	Builds but does not work
+ONLY_FOR_ARCHS=	amd64
+ONLY_FOR_ARCHS_REASON=	"Only supported on amd64"
 
 BUILD_DEPENDS=	bash:shells/bash \
 				sparsehash>=0:devel/sparsehash \
@@ -37,15 +43,6 @@ LIB_DEPENDS=	libtcmalloc.so:devel/google-perftools \
 		librdkafka.so:net/librdkafka \
 		libgtest.so:devel/googletest
 
-USE_GITHUB=	yes
-GH_ACCOUNT=	yandex
-GH_PROJECT=	ClickHouse
-
-ONLY_FOR_ARCHS=	amd64
-ONLY_FOR_ARCHS_REASON=	"Only supported on amd64"
-
-BROKEN_FreeBSD_10=	Builds but does not work
-
 USES=		compiler:c++14-lang cmake iconv mysql ssl readline
 USE_LDCONFIG=	yes
 CMAKE_ARGS=	-DUNBUNDLED=1 \
@@ -54,6 +51,10 @@ CMAKE_ARGS=	-DUNBUNDLED=1 \
 		-DENABLE_TESTS=0 \
 		-DCXX11_ABI= \
 		-DCOMPILER_FLAGS="-DLZ4_DISABLE_DEPRECATE_WARNINGS=1"
+
+USE_GITHUB=	yes
+GH_ACCOUNT=	yandex
+GH_PROJECT=	ClickHouse
 
 USE_RC_SUBR=	${PORTNAME}
 USERS=		clickhouse
@@ -72,7 +73,7 @@ CXX=		clang++50
 
 post-patch:
 	@${REINPLACE_CMD} -e 's|/var/lib/clickhouse|/var/db/clickhouse|;s|/var/log/clickhouse-server|/var/log/clickhouse|;s|/etc/clickhouse-server|${PREFIX}/etc/clickhouse-server|' ${WRKSRC}/dbms/src/Server/config.xml
-	@${REINPLACE_CMD} -e 's|<listen_host>::1</listen_host>|<\!-- <listen_host>::1</listen_host> -->|;s|<listen_host>127.0.0.1</listen_host>|<\!-- <listen_host>127.0.0.1</listen_host> -->|' ${WRKSRC}/dbms/src/Server/config.xml
+	#@${REINPLACE_CMD} -e 's|<listen_host>::1</listen_host>|<\!-- <listen_host>::1</listen_host> -->|;s|<listen_host>127.0.0.1</listen_host>|<\!-- <listen_host>127.0.0.1</listen_host> -->|' ${WRKSRC}/dbms/src/Server/config.xml
 
 post-install:
 	@${RM} ${STAGEDIR}${PREFIX}/bin/clickhouse-compressor
