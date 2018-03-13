@@ -58,7 +58,7 @@ PLIST_SUB=	SOVERSION=${SOVERSION}
 
 .include <bsd.port.pre.mk>
 
-.if ${OPSYS} == FreeBSD && ${OSVERSION} < 1200000
+.if ${OPSYS} == FreeBSD && ${OSVERSION} < 1101505
 BUILD_DEPENDS+=	clang50:devel/llvm50
 CC=		clang50
 CXX=		clang++50
