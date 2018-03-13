@@ -1,18 +1,11 @@
 # Created by: proler@gmail.com
-# $FreeBSD: head/databases/clickhouse/Makefile 451394 2017-10-06 18:23:08Z jbeich $
+# $FreeBSD: head/databases/clickhouse/Makefile 463956 2018-03-09 12:07:37Z jbeich $
 
 PORTNAME=	clickhouse
-PORTVERSION=	1.1.54342
+PORTVERSION=	1.1.54362
 DISTVERSIONPREFIX=	v
 DISTVERSIONSUFFIX=	-stable
-#DISTVERSIONSUFFIX=	-testing
-#PORTREVISION=	1
 CATEGORIES=	databases
-
-PATCH_SITES=	https://github.com/proller/${GH_PROJECT}/commit/
-PATCHFILES=	05b203574ae2.patch:-p1
-#PATCH_SITES=	https://github.com/${GH_ACCOUNT}/${GH_PROJECT}/commit/
-#PATCHFILES=	fa65bdcf4847.patch:-p1
 
 MAINTAINER=	proler@gmail.com
 COMMENT=	ClickHouse is an column-oriented database management system
@@ -73,7 +66,6 @@ CXX=		clang++50
 
 post-patch:
 	@${REINPLACE_CMD} -e 's|/var/lib/clickhouse|/var/db/clickhouse|;s|/var/log/clickhouse-server|/var/log/clickhouse|;s|/etc/clickhouse-server|${PREFIX}/etc/clickhouse-server|' ${WRKSRC}/dbms/src/Server/config.xml
-	#@${REINPLACE_CMD} -e 's|<listen_host>::1</listen_host>|<\!-- <listen_host>::1</listen_host> -->|;s|<listen_host>127.0.0.1</listen_host>|<\!-- <listen_host>127.0.0.1</listen_host> -->|' ${WRKSRC}/dbms/src/Server/config.xml
 
 post-install:
 	@${RM} ${STAGEDIR}${PREFIX}/bin/clickhouse-compressor
