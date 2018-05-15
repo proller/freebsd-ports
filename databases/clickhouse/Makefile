@@ -2,14 +2,14 @@
 # $FreeBSD: head/databases/clickhouse/Makefile 467711 2018-04-18 13:57:42Z jbeich $
 
 PORTNAME=	clickhouse
-PORTVERSION=	1.1.54380
+PORTVERSION=	1.1.54381
 DISTVERSIONPREFIX=	v
 DISTVERSIONSUFFIX=	-stable
-#PORTREVISION=	3
+#PORTREVISION=	1
 CATEGORIES=	databases
 
 MAINTAINER=	proler@gmail.com
-COMMENT=	ClickHouse is an column-oriented database management system
+COMMENT=	ClickHouse is a column-oriented database management system
 
 LICENSE=	APACHE20
 
