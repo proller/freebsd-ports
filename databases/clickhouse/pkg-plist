@@ -20,7 +20,6 @@ bin/clickhouse-zookeeper-cli
 @sample etc/clickhouse-server/users.xml.sample
 etc/clickhouse-client/client-test.xml
 etc/clickhouse-server/server-test.xml
-etc/rc.d/clickhouse
 lib/libclickhouse.so
 lib/libclickhouse.so.1
 lib/libclickhouse.so.%%SOVERSION%%
