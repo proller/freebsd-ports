@@ -1,11 +1,10 @@
 # Created by: proler@gmail.com
-# $FreeBSD: head/databases/clickhouse/Makefile 467711 2018-04-18 13:57:42Z jbeich $
+# $FreeBSD: head/databases/clickhouse/Makefile 470149 2018-05-16 20:19:04Z krion $
 
 PORTNAME=	clickhouse
 PORTVERSION=	1.1.54381
 DISTVERSIONPREFIX=	v
 DISTVERSIONSUFFIX=	-stable
-#PORTREVISION=	1
 CATEGORIES=	databases
 
 MAINTAINER=	proler@gmail.com
@@ -59,6 +58,14 @@ GROUPS=		clickhouse
 
 SOVERSION=	${PORTVERSION}
 PLIST_SUB=	SOVERSION=${SOVERSION}
+
+.include <bsd.port.options.mk>
+
+.if ${OPSYS} == FreeBSD && ${OSVERSION} >= 1200057
+SUB_LIST+=	LEGACY_LIMITS="@comment " MODERN_LIMITS=""
+.else
+SUB_LIST+=	LEGACY_LIMITS="" MODERN_LIMITS="@comment "
+.endif
 
 .include <bsd.port.pre.mk>
 
