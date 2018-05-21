@@ -2,9 +2,10 @@
 # $FreeBSD: head/databases/clickhouse/Makefile 470149 2018-05-16 20:19:04Z krion $
 
 PORTNAME=	clickhouse
-PORTVERSION=	1.1.54381
+PORTVERSION=	1.1.54384
 DISTVERSIONPREFIX=	v
-DISTVERSIONSUFFIX=	-stable
+#DISTVERSIONSUFFIX=	-stable
+DISTVERSIONSUFFIX=	-testing
 CATEGORIES=	databases
 
 MAINTAINER=	proler@gmail.com
@@ -35,7 +36,7 @@ LIB_DEPENDS=	libtcmalloc.so:devel/google-perftools \
 		librdkafka.so:net/librdkafka \
 		libgtest.so:devel/googletest
 
-USES=		compiler:c++14-lang cmake iconv mysql python ssl readline shebangfix
+USES=		compiler:c++14-lang cmake iconv mysql ssl readline shebangfix
 USE_LDCONFIG=	yes
 CMAKE_ARGS=	-DUNBUNDLED=1 \
 		-DUSE_STATIC_LIBRARIES=0 \
@@ -58,6 +59,18 @@ GROUPS=		clickhouse
 
 SOVERSION=	${PORTVERSION}
 PLIST_SUB=	SOVERSION=${SOVERSION}
+
+OPTIONS_DEFINE=		TEST
+OPTIONS_DEFAULT=	TEST
+TEST_DESC=	Depends for testing
+TEST_USES=	python perl5
+TEST_RUN_DEPENDS=	${PYTHON_PKGNAMEPREFIX}lxml>=0:devel/py-lxml@${PY_FLAVOR} \
+		${PYTHON_PKGNAMEPREFIX}termcolor>=0:devel/py-termcolor@${PY_FLAVOR} \
+		${PYTHON_PKGNAMEPREFIX}requests>=0:www/py-requests@${PY_FLAVOR} \
+		curl:ftp/curl \
+		bash:shells/bash \
+		expect:lang/expect \
+		sudo:security/sudo
 
 .include <bsd.port.options.mk>
 
