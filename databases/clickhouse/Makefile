@@ -61,7 +61,8 @@ PLIST_SUB=	SOVERSION=${SOVERSION}
 
 OPTIONS_DEFINE=		TEST
 OPTIONS_DEFAULT=	TEST
-TEST_DESC=	Depends for testing
+OPTIONS_SUB=	yes
+TEST_DESC=	Install script clickhouse-test and test queries data
 TEST_USES=	python perl5
 TEST_RUN_DEPENDS=	${PYTHON_PKGNAMEPREFIX}lxml>=0:devel/py-lxml@${PY_FLAVOR} \
 		${PYTHON_PKGNAMEPREFIX}termcolor>=0:devel/py-termcolor@${PY_FLAVOR} \

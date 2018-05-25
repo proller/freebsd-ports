@@ -10,7 +10,7 @@ bin/clickhouse-local
 bin/clickhouse-performance-test
 bin/clickhouse-report
 bin/clickhouse-server
-bin/clickhouse-test
+%%TEST%%bin/clickhouse-test
 bin/clickhouse-test-server
 bin/clickhouse-zookeeper-cli
 @dir(clickhouse,,) etc/clickhouse-server
