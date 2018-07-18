@@ -2,9 +2,10 @@
 # $FreeBSD: head/databases/clickhouse/Makefile 470149 2018-05-16 20:19:04Z krion $
 
 PORTNAME=	clickhouse
-PORTVERSION=	1.1.54383
+PORTVERSION=	1.1.54396
 DISTVERSIONPREFIX=	v
 DISTVERSIONSUFFIX=	-stable
+DISTVERSIONSUFFIX=	-testing
 CATEGORIES=	databases
 
 MAINTAINER=	proler@gmail.com
@@ -30,10 +31,10 @@ LIB_DEPENDS=	libtcmalloc.so:devel/google-perftools \
 		libzstd.so:archivers/zstd \
 		liblz4.so:archivers/liblz4 \
 		libPocoNet.so:devel/poco \
-		libcpuid.so:sysutils/libcpuid \
 		libunwind.so:devel/libunwind \
 		librdkafka.so:net/librdkafka \
 		libgtest.so:devel/googletest
+#TODO:		libcpuid.so:sysutils/libcpuid \
 
 USES=		compiler:c++14-lang cmake iconv mysql ssl readline shebangfix
 USE_LDCONFIG=	yes
@@ -89,7 +90,7 @@ CXX=		clang++50
 .endif
 
 post-patch:
-	@${REINPLACE_CMD} -e 's|/var/lib/clickhouse|/var/db/clickhouse|;s|/var/log/clickhouse-server|/var/log/clickhouse|;s|/etc/clickhouse-server|${PREFIX}/etc/clickhouse-server|' ${WRKSRC}/dbms/src/Server/config.xml
+	@${REINPLACE_CMD} -e 's|/var/lib/clickhouse|/var/db/clickhouse|;s|/var/log/clickhouse-server|/var/log/clickhouse|;s|/etc/clickhouse-server|${PREFIX}/etc/clickhouse-server|' ${WRKSRC}/dbms/programs/server/config.xml
 
 post-install:
 	@${RM} ${STAGEDIR}${PREFIX}/bin/clickhouse-compressor
@@ -98,7 +99,7 @@ post-install:
 	@${RM} -r ${STAGEDIR}${PREFIX}/include/gtest
 	@${RM} ${STAGEDIR}${PREFIX}/lib/libgtest*
 
-	@${STRIP_CMD} ${STAGEDIR}${PREFIX}/share/clickhouse-test/external_dictionaries/dictionary_library/lib*.so
+	@${STRIP_CMD} ${STAGEDIR}${PREFIX}/share/clickhouse-test/external_dictionaries/dictionary_library/*.so
 
 	${INSTALL_DATA} ${STAGEDIR}${PREFIX}/etc/clickhouse-client/config.xml \
 		${STAGEDIR}${PREFIX}/etc/clickhouse-client/config.xml.sample
