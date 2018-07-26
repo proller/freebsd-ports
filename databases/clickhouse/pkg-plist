@@ -16,13 +16,13 @@ bin/clickhouse-test-server
 bin/clickhouse-zookeeper-cli
 @dir(clickhouse,,) %%ETCDIR%%-server
 @dir(clickhouse,,) %%ETCDIR%%-client
+%%ETCDIR%%-client/client-test.xml
 @sample %%ETCDIR%%-client/config.xml.sample
 @sample %%ETCDIR%%-server/config.xml.sample
-@sample %%ETCDIR%%-server/users.xml.sample
-%%ETCDIR%%-client/client-test.xml
 %%ETCDIR%%-server/server-test.xml
+@sample %%ETCDIR%%-server/users.xml.sample
 lib/libclickhouse.so
-lib/libclickhouse.so.1
+lib/libclickhouse.so.18
 lib/libclickhouse.so.%%SOVERSION%%
 %%DATADIR%%-test/external_dictionaries/CTestTestfile.cmake
 %%DATADIR%%-test/external_dictionaries/README.md
@@ -1536,6 +1536,8 @@ lib/libclickhouse.so.%%SOVERSION%%
 %%DATADIR%%-test/queries/0_stateless/00632_aggregation_window_funnel.sql
 %%DATADIR%%-test/queries/0_stateless/00632_get_sample_block_cache.reference
 %%DATADIR%%-test/queries/0_stateless/00632_get_sample_block_cache.sql
+%%DATADIR%%-test/queries/0_stateless/00633_func_or_in.reference
+%%DATADIR%%-test/queries/0_stateless/00633_func_or_in.sql
 %%DATADIR%%-test/queries/0_stateless/00633_materialized_view_and_too_many_parts_zookeeper.reference
 %%DATADIR%%-test/queries/0_stateless/00633_materialized_view_and_too_many_parts_zookeeper.sh
 %%DATADIR%%-test/queries/0_stateless/00634_rename_view.reference
@@ -1611,6 +1613,10 @@ lib/libclickhouse.so.%%SOVERSION%%
 %%DATADIR%%-test/queries/0_stateless/00670_truncate_temporary_table.sql
 %%DATADIR%%-test/queries/0_stateless/00671_max_intersections.reference
 %%DATADIR%%-test/queries/0_stateless/00671_max_intersections.sql
+%%DATADIR%%-test/queries/0_stateless/00672_arrayDistinct.reference
+%%DATADIR%%-test/queries/0_stateless/00672_arrayDistinct.sql
+%%DATADIR%%-test/queries/0_stateless/00673_subquery_prepared_set_performance.reference
+%%DATADIR%%-test/queries/0_stateless/00673_subquery_prepared_set_performance.sql
 %%DATADIR%%-test/queries/shell_config.sh
 @dir %%DATADIR%%/headers
 @dir %%DATADIR%%-test/external_dictionaries/CMakeFiles

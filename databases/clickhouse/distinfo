@@ -1,3 +1,3 @@
-TIMESTAMP = 1531837892
-SHA256 (yandex-ClickHouse-v1.1.54396-testing_GH0.tar.gz) = a5b0a9bb830dd12d4dd1c7e9c0504584af914c1f7d66a10daf8332a90a0dd9a2
-SIZE (yandex-ClickHouse-v1.1.54396-testing_GH0.tar.gz) = 5636577
+TIMESTAMP = 1532434381
+SHA256 (yandex-ClickHouse-v18.1.0-stable_GH0.tar.gz) = 39be53d3cfb04567718becb3aa1776e4f96db47eff127dd3c6e02e1b91f9683c
+SIZE (yandex-ClickHouse-v18.1.0-stable_GH0.tar.gz) = 5643830
