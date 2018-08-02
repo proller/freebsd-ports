@@ -1,5 +1,5 @@
 # Created by: proler@gmail.com
-# $FreeBSD: head/databases/clickhouse/Makefile 470149 2018-05-16 20:19:04Z krion $
+# $FreeBSD: head/databases/clickhouse/Makefile 475667 2018-07-29 17:49:12Z pi $
 
 PORTNAME=	clickhouse
 PORTVERSION=	18.1.0
