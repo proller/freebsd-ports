@@ -2,7 +2,7 @@
 # $FreeBSD: head/games/freeminer-default/Makefile 412346 2016-04-01 14:00:51Z mat $
 
 PORTNAME=	default
-PORTVERSION=	0.4.10.4
+PORTVERSION=	0.4.14.8
 CATEGORIES=	games
 PKGNAMEPREFIX=	freeminer-
 
