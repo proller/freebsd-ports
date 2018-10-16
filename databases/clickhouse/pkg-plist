@@ -2065,6 +2065,9 @@ lib/libclickhouse.so.%%SOVERSION%%
 %%DATADIR%%-test/queries/1_stateful/00149_quantiles_timing_distributed.sql
 %%DATADIR%%-test/queries/1_stateful/00150_quantiles_timing_precision.reference
 %%DATADIR%%-test/queries/1_stateful/00150_quantiles_timing_precision.sql
+%%DATADIR%%-test/queries/0_stateless/00737_decimal_group_by.reference
+%%DATADIR%%-test/queries/0_stateless/00737_decimal_group_by.sql
+%%DATADIR%%-test/queries/bugs/prewhere_alias_array.sql
 %%DATADIR%%-test/queries/shell_config.sh
 @dir %%DATADIR%%/headers/%%SOVERSION%%
 @dir %%DATADIR%%-test/external_dictionaries/CMakeFiles
