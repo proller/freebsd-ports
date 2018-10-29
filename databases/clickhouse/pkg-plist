@@ -1878,6 +1878,10 @@ lib/libclickhouse.so.%%SOVERSION%%
 %%DATADIR%%-test/queries/0_stateless/00735_or_expr_optimize_bug.sql
 %%DATADIR%%-test/queries/0_stateless/00736_disjunction_optimisation.reference
 %%DATADIR%%-test/queries/0_stateless/00736_disjunction_optimisation.sql
+%%DATADIR%%-test/queries/0_stateless/00443_merge_tree_uniform_read_distribution_0.reference
+%%DATADIR%%-test/queries/0_stateless/00443_merge_tree_uniform_read_distribution_0.sh
+%%DATADIR%%-test/queries/0_stateless/00738_nested_merge_multidimensional_array.reference
+%%DATADIR%%-test/queries/0_stateless/00738_nested_merge_multidimensional_array.sql
 %%DATADIR%%-test/queries/0_stateless/mergetree_mutations.lib
 %%DATADIR%%-test/queries/1_stateful/00001_count_hits.reference
 %%DATADIR%%-test/queries/1_stateful/00001_count_hits.sql

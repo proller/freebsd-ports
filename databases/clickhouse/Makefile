@@ -2,7 +2,7 @@
 # $FreeBSD: head/databases/clickhouse/Makefile 478607 2018-08-31 20:14:40Z jbeich $
 
 PORTNAME=	clickhouse
-PORTVERSION=	18.14.10
+PORTVERSION=	18.14.11
 DISTVERSIONPREFIX=	v
 DISTVERSIONSUFFIX=	-stable
 #PORTREVISION=	2
@@ -38,6 +38,7 @@ LIB_DEPENDS=	libtcmalloc.so:devel/google-perftools \
 
 USES=		compiler:c++14-lang cmake iconv mysql ssl readline shebangfix
 USE_LDCONFIG=	yes
+
 CMAKE_ARGS=	-DUNBUNDLED=1 \
 		-DUSE_STATIC_LIBRARIES=0 \
 		-DNO_WERROR=1 \
