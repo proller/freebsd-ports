@@ -33,23 +33,23 @@ LIB_DEPENDS=	libtcmalloc.so:devel/google-perftools \
 		libunwind.so:devel/libunwind \
 		libcpuid.so:sysutils/libcpuid \
 		libbrotlicommon.so:archivers/brotli \
+		libsnappy.so:archivers/snappy \
 		libprotobuf.so:devel/protobuf \
-        libhs.so:devel/hyperscan \
+		libhs.so:devel/hyperscan \
 		libgtest.so:devel/googletest
 
 #		librdkafka.so:net/librdkafka \ # Now needs cppkafka
 #		libgsasl.so:security/gsasl \ # for hdfs
 #		libxxhash.so:devel/xxhash \ # now from lz4
 
-USES=		compiler:c++14-lang cmake:insource iconv mysql ssl readline shebangfix
+USES=		compiler:c++17-lang cmake:insource iconv mysql ssl readline shebangfix
 #USE_GNOME=	libxml2 # for hdfs
 USE_LDCONFIG=	yes
-
 
 USE_GITHUB=	yes
 GH_ACCOUNT=	yandex
 GH_PROJECT=	ClickHouse
-GH_TAGNAME=	e4d45b7e50951e0e6fec50f6925e395def85d995
+GH_TAGNAME=	d10b256a8ad0c6a2410654ebaf43083544f956a9
 USE_RC_SUBR=	${PORTNAME}
 SHEBANG_FILES=	dbms/tests/performance/create_benchmark_page.py \
 		dbms/tests/clickhouse-test
