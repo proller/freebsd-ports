@@ -2,10 +2,10 @@
 # $FreeBSD: head/databases/clickhouse/Makefile 488473 2018-12-26 22:27:25Z swills $
 
 PORTNAME=	clickhouse
-#PORTVERSION=	19.3.3
-PORTVERSION=	19.5.1.1
+PORTVERSION=	19.5.1.246
 DISTVERSIONPREFIX=	v
 DISTVERSIONSUFFIX=	-stable
+DISTVERSIONSUFFIX=	-testing
 CATEGORIES=	databases
 
 MAINTAINER=	proler@gmail.com
@@ -49,7 +49,7 @@ USE_LDCONFIG=	yes
 USE_GITHUB=	yes
 GH_ACCOUNT=	yandex
 GH_PROJECT=	ClickHouse
-GH_TAGNAME=	d10b256a8ad0c6a2410654ebaf43083544f956a9
+#GH_TAGNAME=	d10b256a8ad0c6a2410654ebaf43083544f956a9
 USE_RC_SUBR=	${PORTNAME}
 SHEBANG_FILES=	dbms/tests/performance/create_benchmark_page.py \
 		dbms/tests/clickhouse-test

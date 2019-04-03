@@ -25,7 +25,7 @@ bin/clickhouse-zookeeper-cli
 %%ETCDIR%%-server/users.xml.sample
 lib/libclickhouse.so
 lib/libclickhouse.so.19.5
-lib/libclickhouse.so.%%SOVERSION%%
+lib/libclickhouse.so.19.5.1.1
 %%DATADIR%%-test/performance/array/array_element.xml
 %%DATADIR%%-test/performance/array/array_join.xml
 %%DATADIR%%-test/performance/array/complex_array_creation.xml
@@ -2177,6 +2177,8 @@ lib/libclickhouse.so.%%SOVERSION%%
 %%DATADIR%%-test/queries/0_stateless/00851_http_insert_json_defaults.sh
 %%DATADIR%%-test/queries/0_stateless/00852_any_join_nulls.reference
 %%DATADIR%%-test/queries/0_stateless/00852_any_join_nulls.sql
+%%DATADIR%%-test/queries/0_stateless/00853_join_with_nulls_crash.reference
+%%DATADIR%%-test/queries/0_stateless/00853_join_with_nulls_crash.sql
 %%DATADIR%%-test/queries/0_stateless/00897_flatten.reference
 %%DATADIR%%-test/queries/0_stateless/00897_flatten.sql
 %%DATADIR%%-test/queries/0_stateless/00898_parsing_bad_diagnostic_message.reference
@@ -2274,18 +2276,30 @@ lib/libclickhouse.so.%%SOVERSION%%
 %%DATADIR%%-test/queries/0_stateless/00925_zookeeper_empty_replicated_merge_tree_optimize_final.sql
 %%DATADIR%%-test/queries/0_stateless/00926_multimatch.reference
 %%DATADIR%%-test/queries/0_stateless/00926_multimatch.sql
+%%DATADIR%%-test/queries/0_stateless/00927_asof_join_correct_bt.reference
+%%DATADIR%%-test/queries/0_stateless/00927_asof_join_correct_bt.sql
 %%DATADIR%%-test/queries/0_stateless/00927_asof_join_noninclusive.reference
 %%DATADIR%%-test/queries/0_stateless/00927_asof_join_noninclusive.sql
+%%DATADIR%%-test/queries/0_stateless/00927_asof_join_other_types.reference
+%%DATADIR%%-test/queries/0_stateless/00927_asof_join_other_types.sh
 %%DATADIR%%-test/queries/0_stateless/00927_asof_joins.reference
 %%DATADIR%%-test/queries/0_stateless/00927_asof_joins.sql
 %%DATADIR%%-test/queries/0_stateless/00927_disable_hyperscan.reference
 %%DATADIR%%-test/queries/0_stateless/00927_disable_hyperscan.sql
+%%DATADIR%%-test/queries/0_stateless/00927_table_filter.reference
+%%DATADIR%%-test/queries/0_stateless/00927_table_filter.sql
 %%DATADIR%%-test/queries/0_stateless/00928_multi_match_constant_constant.reference
 %%DATADIR%%-test/queries/0_stateless/00928_multi_match_constant_constant.sql
 %%DATADIR%%-test/queries/0_stateless/00929_multi_match_edit_distance.reference
 %%DATADIR%%-test/queries/0_stateless/00929_multi_match_edit_distance.sql
+%%DATADIR%%-test/queries/0_stateless/00930_arrayIntersect.reference
+%%DATADIR%%-test/queries/0_stateless/00930_arrayIntersect.sql
 %%DATADIR%%-test/queries/0_stateless/00930_max_partitions_per_insert_block.reference
 %%DATADIR%%-test/queries/0_stateless/00930_max_partitions_per_insert_block.sql
+%%DATADIR%%-test/queries/0_stateless/00931_low_cardinality_read_with_empty_array.reference
+%%DATADIR%%-test/queries/0_stateless/00931_low_cardinality_read_with_empty_array.sql
+%%DATADIR%%-test/queries/0_stateless/00932_array_intersect_bug.reference
+%%DATADIR%%-test/queries/0_stateless/00932_array_intersect_bug.sql
 %%DATADIR%%-test/queries/0_stateless/data_parquet/alltypes_dictionary.parquet
 %%DATADIR%%-test/queries/0_stateless/data_parquet/alltypes_dictionary.parquet.columns
 %%DATADIR%%-test/queries/0_stateless/data_parquet/alltypes_plain.parquet
@@ -2526,11 +2540,12 @@ lib/libclickhouse.so.%%SOVERSION%%
 %%DATADIR%%-test/queries/bugs/00597_push_down_predicate.sql
 %%DATADIR%%-test/queries/bugs/missing_scalar_subquery_removal.sql
 %%DATADIR%%-test/queries/bugs/position_case_insensitive_utf8.sql
+%%DATADIR%%-test/queries/bugs/prewhere_with_alias.sql
 %%DATADIR%%-test/queries/bugs/remote_scalar_subquery.sql
 %%DATADIR%%-test/queries/bugs/totals_rollup_having_block_header.sql
 %%DATADIR%%-test/queries/bugs/view_bad_types.sql
 %%DATADIR%%-test/queries/shell_config.sh
-@dir %%DATADIR%%/headers/%%SOVERSION%%
+@dir %%DATADIR%%/headers/19.5.1.1
 @dir /var/db/clickhouse
 @dir /var/log/clickhouse
 @dir /var/run/clickhouse
