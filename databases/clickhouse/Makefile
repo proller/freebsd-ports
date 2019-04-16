@@ -2,10 +2,9 @@
 # $FreeBSD: head/databases/clickhouse/Makefile 488473 2018-12-26 22:27:25Z swills $
 
 PORTNAME=	clickhouse
-PORTVERSION=	19.5.1.246
+PORTVERSION=	19.5.2.6
 DISTVERSIONPREFIX=	v
 DISTVERSIONSUFFIX=	-stable
-DISTVERSIONSUFFIX=	-testing
 CATEGORIES=	databases
 
 MAINTAINER=	proler@gmail.com
