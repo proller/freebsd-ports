@@ -12,20 +12,19 @@ bin/clickhouse-odbc-bridge
 bin/clickhouse-performance-test
 bin/clickhouse-report
 bin/clickhouse-server
-bin/clickhouse-test
-bin/clickhouse-test-server
+%%TEST%%bin/clickhouse-test
+%%TEST%%bin/clickhouse-test-server
 bin/clickhouse-zookeeper-cli
+@dir(clickhouse,,) %%ETCDIR%%-server
+@dir(clickhouse,,) %%ETCDIR%%-client
 %%ETCDIR%%-client/client-test.xml
-%%ETCDIR%%-client/config.xml
-%%ETCDIR%%-client/config.xml.sample
-%%ETCDIR%%-server/config.xml
-%%ETCDIR%%-server/config.xml.sample
+@sample %%ETCDIR%%-client/config.xml.sample
+@sample %%ETCDIR%%-server/config.xml.sample
 %%ETCDIR%%-server/server-test.xml
-%%ETCDIR%%-server/users.xml
-%%ETCDIR%%-server/users.xml.sample
+@sample %%ETCDIR%%-server/users.xml.sample
 lib/libclickhouse.so
 lib/libclickhouse.so.19.5
-lib/libclickhouse.so.19.5.2.1
+lib/libclickhouse.so.%%SOVERSION%%
 %%DATADIR%%-test/performance/array/array_element.xml
 %%DATADIR%%-test/performance/array/array_join.xml
 %%DATADIR%%-test/performance/array/complex_array_creation.xml
@@ -2557,7 +2556,7 @@ lib/libclickhouse.so.19.5.2.1
 %%DATADIR%%-test/queries/bugs/totals_rollup_having_block_header.sql
 %%DATADIR%%-test/queries/bugs/view_bad_types.sql
 %%DATADIR%%-test/queries/shell_config.sh
-@dir %%DATADIR%%/headers/19.5.2.1
-@dir /var/db/clickhouse
-@dir /var/log/clickhouse
-@dir /var/run/clickhouse
+@dir %%DATADIR%%/headers/%%SOVERSION%%
+@dir(clickhouse,,) /var/db/clickhouse
+@dir(clickhouse,,) /var/log/clickhouse
+@dir(clickhouse,,) /var/run/clickhouse
