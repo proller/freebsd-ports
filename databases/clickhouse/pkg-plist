@@ -24,7 +24,7 @@ bin/clickhouse-zookeeper-cli
 @sample %%ETCDIR%%-server/users.xml.sample
 lib/libclickhouse.so
 lib/libclickhouse.so.19.5
-lib/libclickhouse.so.%%SOVERSION%%
+lib/libclickhouse.so.19.5.2.1
 %%DATADIR%%-test/performance/array/array_element.xml
 %%DATADIR%%-test/performance/array/array_join.xml
 %%DATADIR%%-test/performance/array/complex_array_creation.xml
@@ -2556,7 +2556,7 @@ lib/libclickhouse.so.%%SOVERSION%%
 %%DATADIR%%-test/queries/bugs/totals_rollup_having_block_header.sql
 %%DATADIR%%-test/queries/bugs/view_bad_types.sql
 %%DATADIR%%-test/queries/shell_config.sh
-@dir %%DATADIR%%/headers/%%SOVERSION%%
+@dir %%DATADIR%%/headers/19.5.2.1
 @dir(clickhouse,,) /var/db/clickhouse
 @dir(clickhouse,,) /var/log/clickhouse
 @dir(clickhouse,,) /var/run/clickhouse
