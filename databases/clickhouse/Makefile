@@ -2,7 +2,7 @@
 # $FreeBSD: head/databases/clickhouse/Makefile 500376 2019-04-28 23:57:22Z kai $
 
 PORTNAME=	clickhouse
-PORTVERSION=	19.5.3.8
+PORTVERSION=	19.7.3.9
 DISTVERSIONPREFIX=	v
 DISTVERSIONSUFFIX=	-stable
 CATEGORIES=	databases
@@ -64,7 +64,7 @@ USERS=		clickhouse
 GROUPS=		clickhouse
 
 # The version stamp of libclickhouse.so doesn't always match ${PORTVERSION}
-SOVERSION=	19.5.3.1
+SOVERSION=	19.7.3.1
 PLIST_SUB=	SOVERSION=${SOVERSION}
 
 OPTIONS_DEFINE=		TEST
