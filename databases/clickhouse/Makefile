@@ -2,7 +2,7 @@
 # $FreeBSD: head/databases/clickhouse/Makefile 500376 2019-04-28 23:57:22Z kai $
 
 PORTNAME=	clickhouse
-PORTVERSION=	19.7.3.9
+PORTVERSION=	19.8.3.8
 DISTVERSIONPREFIX=	v
 DISTVERSIONSUFFIX=	-stable
 CATEGORIES=	databases
@@ -18,6 +18,7 @@ ONLY_FOR_ARCHS_REASON=	"Only supported on amd64"
 BUILD_DEPENDS=	bash:shells/bash \
 		sparsehash>=0:devel/sparsehash \
 		cctz>=0:devel/cctz \
+		rapidjson>=0:devel/rapidjson \
 		double-conversion>=0:devel/double-conversion
 LIB_DEPENDS=	libtcmalloc.so:devel/google-perftools \
 		libodbc.so:databases/unixODBC \
@@ -64,7 +65,7 @@ USERS=		clickhouse
 GROUPS=		clickhouse
 
 # The version stamp of libclickhouse.so doesn't always match ${PORTVERSION}
-SOVERSION=	19.7.3.1
+SOVERSION=	${PORTVERSION}
 PLIST_SUB=	SOVERSION=${SOVERSION}
 
 OPTIONS_DEFINE=		TEST
