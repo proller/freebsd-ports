@@ -63,7 +63,7 @@ lib/libclickhouse.so.%%SOVERSION%%
 %%DATADIR%%-test/performance/float_parsing.xml
 %%DATADIR%%-test/performance/format_date_time.xml
 %%DATADIR%%-test/performance/functions_coding.xml
-%%DATADIR%%-test/performance/funtions_geo/functions_geo.xml
+%%DATADIR%%-test/performance/functions_geo.xml
 %%DATADIR%%-test/performance/general_purpose_hashes.xml
 %%DATADIR%%-test/performance/if_array_num.xml
 %%DATADIR%%-test/performance/if_array_string.xml
@@ -71,9 +71,11 @@ lib/libclickhouse.so.%%SOVERSION%%
 %%DATADIR%%-test/performance/if_string_hits.xml
 %%DATADIR%%-test/performance/int_parsing.xml
 %%DATADIR%%-test/performance/joins_in_memory.xml
-%%DATADIR%%-test/performance/json_extract.xml
-%%DATADIR%%-test/performance/json_extract_without_simdjson.xml
+%%DATADIR%%-test/performance/json_extract_rapidjson.xml
+%%DATADIR%%-test/performance/json_extract_simdjson.xml
 %%DATADIR%%-test/performance/leftpad.xml
+%%DATADIR%%-test/performance/linear_regression.xml
+%%DATADIR%%-test/performance/merge_tree_simple_select.xml
 %%DATADIR%%-test/performance/ngram_distance.xml
 %%DATADIR%%-test/performance/nyc_taxi.xml
 %%DATADIR%%-test/performance/order_by_single_column.xml
@@ -2446,12 +2448,20 @@ lib/libclickhouse.so.%%SOVERSION%%
 %%DATADIR%%-test/queries/0_stateless/00950_bad_alloc_when_truncate_join_storage.sql
 %%DATADIR%%-test/queries/0_stateless/00950_default_prewhere.reference
 %%DATADIR%%-test/queries/0_stateless/00950_default_prewhere.sql
+%%DATADIR%%-test/queries/0_stateless/00950_dict_get.reference
+%%DATADIR%%-test/queries/0_stateless/00950_dict_get.sql
 %%DATADIR%%-test/queries/0_stateless/00951_ngram_entry.reference
 %%DATADIR%%-test/queries/0_stateless/00951_ngram_entry.sql
 %%DATADIR%%-test/queries/0_stateless/00952_insert_into_distributed_with_materialized_column.reference
 %%DATADIR%%-test/queries/0_stateless/00952_insert_into_distributed_with_materialized_column.sql
+%%DATADIR%%-test/queries/0_stateless/00952_part_frozen_info.reference
+%%DATADIR%%-test/queries/0_stateless/00952_part_frozen_info.sql
 %%DATADIR%%-test/queries/0_stateless/00953_indices_alter_exceptions.reference
 %%DATADIR%%-test/queries/0_stateless/00953_indices_alter_exceptions.sh
+%%DATADIR%%-test/queries/0_stateless/00953_zookeeper_suetin_deduplication_bug.reference
+%%DATADIR%%-test/queries/0_stateless/00953_zookeeper_suetin_deduplication_bug.sh
+%%DATADIR%%-test/queries/0_stateless/00956_join_use_nulls_with_array_column.reference
+%%DATADIR%%-test/queries/0_stateless/00956_join_use_nulls_with_array_column.sql
 %%DATADIR%%-test/queries/0_stateless/data_parquet/alltypes_dictionary.parquet
 %%DATADIR%%-test/queries/0_stateless/data_parquet/alltypes_dictionary.parquet.columns
 %%DATADIR%%-test/queries/0_stateless/data_parquet/alltypes_plain.parquet
@@ -2692,6 +2702,7 @@ lib/libclickhouse.so.%%SOVERSION%%
 %%DATADIR%%-test/queries/bugs/00597_push_down_predicate.sql
 %%DATADIR%%-test/queries/bugs/00938_client_suggestions.sh
 %%DATADIR%%-test/queries/bugs/default_prewhere.sql
+%%DATADIR%%-test/queries/bugs/low_cardinality_remove.sql
 %%DATADIR%%-test/queries/bugs/missing_scalar_subquery_removal.sql
 %%DATADIR%%-test/queries/bugs/position_case_insensitive_utf8.sql
 %%DATADIR%%-test/queries/bugs/prewhere_with_alias.sql
@@ -2701,8 +2712,8 @@ lib/libclickhouse.so.%%SOVERSION%%
 %%DATADIR%%-test/queries/shell_config.sh
 @dir %%DATADIR%%/headers/%%SOVERSION%%
 %%DATADIR%%/headers/%%SOVERSION%%/contrib/cityhash102/include/city.h
-%%DATADIR%%/headers/%%SOVERSION%%/contrib/croaring/roaring.h
-%%DATADIR%%/headers/%%SOVERSION%%/contrib/croaring/roaring.hh
+%%DATADIR%%/headers/%%SOVERSION%%/contrib/croaring/roaring/roaring.h
+%%DATADIR%%/headers/%%SOVERSION%%/contrib/croaring/roaring/roaring.hh
 %%DATADIR%%/headers/%%SOVERSION%%/contrib/libpcg-random/include/pcg_extras.hpp
 %%DATADIR%%/headers/%%SOVERSION%%/contrib/libpcg-random/include/pcg_random.hpp
 %%DATADIR%%/headers/%%SOVERSION%%/dbms/src/AggregateFunctions/AggregateFunctionArgMinMax.h
