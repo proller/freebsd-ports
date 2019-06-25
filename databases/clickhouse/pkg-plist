@@ -23,7 +23,7 @@ bin/clickhouse-zookeeper-cli
 %%ETCDIR%%-server/server-test.xml
 @sample %%ETCDIR%%-server/users.xml.sample
 lib/libclickhouse.so
-lib/libclickhouse.so.19.8
+lib/libclickhouse.so.19.9
 lib/libclickhouse.so.%%SOVERSION%%
 %%DATADIR%%-test/config/decimals_dictionary.xml
 %%DATADIR%%-test/config/ints_dictionary.xml
