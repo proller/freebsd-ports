@@ -33,6 +33,7 @@ lib/libclickhouse.so.%%SOVERSION%%
 %%DATADIR%%-test/config/query_masking_rules.xml
 %%DATADIR%%-test/config/readonly.xml
 %%DATADIR%%-test/config/strings_dictionary.xml
+%%DATADIR%%-test/config/text_log.xml
 %%DATADIR%%-test/config/zookeeper.xml
 %%DATADIR%%-test/performance/IPv4.xml
 %%DATADIR%%-test/performance/IPv6.xml
@@ -2550,6 +2551,14 @@ lib/libclickhouse.so.%%SOVERSION%%
 %%DATADIR%%-test/queries/0_stateless/00971_query_id_in_logs.sh
 %%DATADIR%%-test/queries/0_stateless/00972_desc_table_virtual_columns.reference
 %%DATADIR%%-test/queries/0_stateless/00972_desc_table_virtual_columns.sql
+%%DATADIR%%-test/queries/0_stateless/00973_uniq_non_associativity.reference
+%%DATADIR%%-test/queries/0_stateless/00973_uniq_non_associativity.sql
+%%DATADIR%%-test/queries/0_stateless/00974_adaptive_granularity_secondary_index.reference
+%%DATADIR%%-test/queries/0_stateless/00974_adaptive_granularity_secondary_index.sql
+%%DATADIR%%-test/queries/0_stateless/00974_low_cardinality_cast.reference
+%%DATADIR%%-test/queries/0_stateless/00974_low_cardinality_cast.sql
+%%DATADIR%%-test/queries/0_stateless/00975_json_hang.reference
+%%DATADIR%%-test/queries/0_stateless/00975_json_hang.sql
 %%DATADIR%%-test/queries/0_stateless/data_parquet/alltypes_dictionary.parquet
 %%DATADIR%%-test/queries/0_stateless/data_parquet/alltypes_dictionary.parquet.columns
 %%DATADIR%%-test/queries/0_stateless/data_parquet/alltypes_plain.parquet
