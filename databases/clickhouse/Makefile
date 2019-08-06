@@ -2,7 +2,7 @@
 # $FreeBSD: head/databases/clickhouse/Makefile 500376 2019-04-28 23:57:22Z kai $
 
 PORTNAME=	clickhouse
-PORTVERSION=	19.11.4.24
+PORTVERSION=	19.11.5.28
 DISTVERSIONPREFIX=	v
 DISTVERSIONSUFFIX=	-stable
 CATEGORIES=	databases
@@ -59,6 +59,7 @@ SHEBANG_FILES=	dbms/tests/performance/create_benchmark_page.py \
 
 CMAKE_ARGS=	-DUNBUNDLED=1 \
 		-DUSE_STATIC_LIBRARIES=0 \
+		-DENABLE_EMBEDDED_COMPILER=0 \
 		-DNO_WERROR=1
 
 USERS=		clickhouse
