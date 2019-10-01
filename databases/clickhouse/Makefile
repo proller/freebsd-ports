@@ -1,10 +1,11 @@
 # Created by: proler@gmail.com
-# $FreeBSD: head/databases/clickhouse/Makefile 500376 2019-04-28 23:57:22Z kai $
+# $FreeBSD: head/databases/clickhouse/Makefile 509290 2019-08-19 15:35:27Z jbeich $
 
 PORTNAME=	clickhouse
 PORTVERSION=	19.11.5.28
 DISTVERSIONPREFIX=	v
 DISTVERSIONSUFFIX=	-stable
+PORTREVISION=	1
 CATEGORIES=	databases
 
 MAINTAINER=	proler@gmail.com
