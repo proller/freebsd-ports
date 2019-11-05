@@ -2,10 +2,9 @@
 # $FreeBSD: head/databases/clickhouse/Makefile 509290 2019-08-19 15:35:27Z jbeich $
 
 PORTNAME=	clickhouse
-PORTVERSION=	19.11.5.28
+PORTVERSION=	19.16.2.2
 DISTVERSIONPREFIX=	v
 DISTVERSIONSUFFIX=	-stable
-PORTREVISION=	1
 CATEGORIES=	databases
 
 MAINTAINER=	proler@gmail.com
@@ -61,7 +60,9 @@ SHEBANG_FILES=	dbms/tests/performance/create_benchmark_page.py \
 CMAKE_ARGS=	-DUNBUNDLED=1 \
 		-DUSE_STATIC_LIBRARIES=0 \
 		-DENABLE_EMBEDDED_COMPILER=0 \
-		-DNO_WERROR=1
+		-DUSE_INTERNAL_ORC_LIBRARY=0 \
+		-DUSE_ORC=0 \
+		-DUSE_CAPNP=0
 
 USERS=		clickhouse
 GROUPS=		clickhouse
@@ -80,6 +81,12 @@ TEST_CMAKE_BOOL=	ENABLE_TESTS
 SUB_LIST+=	LEGACY_LIMITS="@comment " MODERN_LIMITS=""
 .else
 SUB_LIST+=	LEGACY_LIMITS="" MODERN_LIMITS="@comment "
+.endif
+
+.if ${OPSYS} == FreeBSD && ${OSVERSION} < 1200000
+BUILD_DEPENDS+=	clang70:devel/llvm70
+CC=	clang70
+CXX=	clang++70
 .endif
 
 # Building with tests fails on 13.0-CURRENT@r346346 amd64
